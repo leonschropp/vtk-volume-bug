@@ -1,2 +1,4 @@
 # vtk-volume-bug
-Add a test to report a bug at volume calculation of quadratic elements
+This repo's one and only purpose is to report a bug at the current vtk master. It appears that the volume of certain quadratic Elements (Hexahedrons and Tetrahedrons) is incorrect. 
+
+See 'test_volume' for details! 
