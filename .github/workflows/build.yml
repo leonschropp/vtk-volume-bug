@@ -1,0 +1,58 @@
+name: Build with VTK master
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout project
+      uses: actions/checkout@v4
+
+    - name: Install system dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y \
+          git \
+          cmake \
+          ninja-build \
+          build-essential \
+          libgl1-mesa-dev \
+          libxrender-dev \
+          libx11-dev \
+          libxt-dev
+
+    - name: Clone VTK master
+      run: |
+        git clone --depth 1 https://github.com/Kitware/VTK.git
+
+    - name: Configure VTK
+      run: |
+        cmake -S VTK -B vtk-build \
+          -G Ninja \
+          -DCMAKE_BUILD_TYPE=Release \
+          -DVTK_BUILD_TESTING=OFF \
+          -DVTK_BUILD_EXAMPLES=OFF \
+          -DVTK_GROUP_ENABLE_Rendering=YES
+
+    - name: Build VTK
+      run: |
+        cmake --build vtk-build
+
+    - name: Configure project
+      run: |
+        cmake -S . -B build \
+          -G Ninja \
+          -DCMAKE_BUILD_TYPE=Release \
+          -DVTK_DIR=$PWD/vtk-build
+
+    - name: Build project
+      run: |
+        cmake --build build
+
+    - name: Run test_volume
+      run: |
+        ./build/test_volume
