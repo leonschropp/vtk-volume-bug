@@ -30,8 +30,8 @@ jobs:
         git clone --depth 1 https://github.com/Kitware/VTK.git
 
     - name: Configure VTK
-      run: |
-        cmake -S VTK -B vtk-build \
+    run: |
+      cmake -S VTK -B vtk-build \
         -G Ninja \
         -DCMAKE_BUILD_TYPE=Release \
         -DBUILD_SHARED_LIBS=ON \
@@ -46,11 +46,9 @@ jobs:
         -DVTK_GROUP_ENABLE_Interaction=NO \
         -DVTK_GROUP_ENABLE_Views=NO \
         -DVTK_GROUP_ENABLE_Charts=NO \
-        -DVTK_GROUP_ENABLE_IO=NO \
         -DVTK_GROUP_ENABLE_Qt=NO \
-        -DVTK_GROUP_ENABLE_Web=NO \
-        -DVTK_GROUP_ENABLE_StandAlone=YES
-
+        -DVTK_GROUP_ENABLE_Web=NO
+        
     - name: Build VTK
       run: |
         cmake --build vtk-build
