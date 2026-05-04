@@ -11,7 +11,6 @@
 #include <vtkQuadraticTetra.h>
 #include <iostream>
 
-const std::string root = PROJECT_ROOT;
 
 double vtk_volume(vtkSmartPointer<vtkUnstructuredGrid> grid)
 {
