@@ -41,6 +41,7 @@ jobs:
           -DVTK_WRAP_PYTHON=OFF \
           -DVTK_WRAP_JAVA=OFF \
           -DVTK_WRAP_TCL=OFF \
+          -DVTK_GROUP_ENABLE_Parallel=YES \
           -DVTK_GROUP_ENABLE_Rendering=NO \
           -DVTK_GROUP_ENABLE_Imaging=NO \
           -DVTK_GROUP_ENABLE_Interaction=NO \
