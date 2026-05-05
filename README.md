@@ -7,8 +7,8 @@ In this test, I first construct a QuadraticHexahedron using basic VTK methods an
 
 However, by integrating over the quadratic function for the 'pulled out' node, one easily verifies that the correct volume is **8666.666**!
 
-The same result is obtained by passing this Hexahedron to Calculix (cgx)(https://www.calculix.de/) or Paraview
-(https://www.paraview.org/) and using their volume functions. Both **CGX** and **Paraview** give out **8666.666**!
+The same result is obtained by passing this Hexahedron to [Calculix (CGX)](https://www.calculix.de/) or [Paraview]
+(https://www.paraview.org/) and using their volume functions. Both CGX and Paraview give out **8666.666** for this exact quadratic Hexahedron!
 
 A similar deviation appears for QuadraticTetraHedrons.
 
