@@ -78,7 +78,7 @@ bool test_quadratic_hex()
   std::cout << "Absolute deviation: " << volume - 8.666667e+03
             << std::endl;
   std::cout << "Relative deviation: " << (volume - 8.666667e+03) / volume
-  << std::endl;
+  << std::endl << std::endl;
   return true;
 }
 
@@ -104,7 +104,6 @@ bool test_quadratic_tet()
     {0, 50, 50}   // 9
   };
 
-  std::cout << coords[4][1]<< std::endl;
   for (int i = 0; i < 10; ++i)
     points->InsertNextPoint(coords[i][0], coords[i][1], coords[i][2]);
 
